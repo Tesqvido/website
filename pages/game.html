@@ -10,6 +10,24 @@
             background-color: #121212;
             color: white;
             text-align: center;
+            margin: 0;
+            padding: 0;
+        }
+        header {
+            background-color: #222;
+            padding: 1em;
+        }
+        .logo {
+            max-width: 150px;
+        }
+        nav {
+            background-color: #333;
+            padding: 1em;
+        }
+        nav a {
+            color: white;
+            text-decoration: none;
+            margin: 0 15px;
         }
         .game-list {
             width: 50%;
@@ -50,9 +68,26 @@
             padding: 10px;
             text-align: left;
         }
+        footer {
+            background-color: #222;
+            padding-bottom: 0.6em;
+            padding-top: 0.6em;
+            position: relative;
+            bottom: 0;
+            width: 100%;
+        }
     </style>
 </head>
 <body>
+    <header>
+        <img src="ShadowQuill.png" alt="ShadowQuill Studio Logo" class="logo">
+    </header>
+    <nav>
+        <a href="index.html">Home</a>
+        <a href="pages/about.html">Über Uns</a>
+        <a href="pages/game.html">Unser Spiel</a>
+        <a href="#contact">Kontakt</a>
+    </nav>
     <h1>Unsere Spiele</h1>
     <div class="game-list">
         <div class="game-item">
@@ -86,6 +121,9 @@
             </div>
         </div>
     </div>
+    <footer>
+        <p>&copy; 2025 ShadowQuill Studio</p>
+    </footer>
     <script>
         function toggleGameDetails(gameId) {
             var details = document.getElementById("game-details-" + gameId);
