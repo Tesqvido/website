@@ -1,0 +1,60 @@
+
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Unsere Spiele | ShadowQuill Studio</title>
+    <link rel="stylesheet" href="assets/styles.css">
+    <script defer src="assets/scripts.js"></script>
+</head>
+<body>
+
+    <header>
+        <h1>Unsere Spiele</h1>
+    </header>
+
+    <main>
+        <div class="game-list">
+
+            <!-- Erstes Spiel -->
+            <div class="game-item">
+                <div class="game-header" onclick="toggleDetails(1)">
+                    <img src="assets/images/game1-icon.png" alt="Game 1 Icon">
+                    <h2>Game Name 1</h2>
+                    <span class="arrow">▼</span>
+                </div>
+                <div class="game-details" id="details-1">
+                    <p>Beschreibung des Spiels. Hier könnt ihr eine kurze Zusammenfassung oder Features beschreiben.</p>
+                </div>
+            </div>
+
+            <!-- Zweites Spiel -->
+            <div class="game-item">
+                <div class="game-header" onclick="toggleDetails(2)">
+                    <img src="assets/images/game2-icon.png" alt="Game 2 Icon">
+                    <h2>Game Name 2</h2>
+                    <span class="arrow">▼</span>
+                </div>
+                <div class="game-details" id="details-2">
+                    <p>Beschreibung für das zweite Spiel.</p>
+                </div>
+            </div>
+
+            <!-- Drittes Spiel -->
+            <div class="game-item">
+                <div class="game-header" onclick="toggleDetails(3)">
+                    <img src="assets/images/game3-icon.png" alt="Game 3 Icon">
+                    <h2>Game Name 3</h2>
+                    <span class="arrow">▼</span>
+                </div>
+                <div class="game-details" id="details-3">
+                    <p>Beschreibung für das dritte Spiel.</p>
+                </div>
+            </div>
+
+        </div>
+    </main>
+
+</body>
+</html>
