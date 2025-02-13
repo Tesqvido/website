@@ -1,60 +1,104 @@
-
 <!DOCTYPE html>
 <html lang="de">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Unsere Spiele | ShadowQuill Studio</title>
-    <link rel="stylesheet" href="website/assets/game-styles.css">
-    <script defer src="website/assets/game-scripts.js"></script>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #121212;
+            color: white;
+            text-align: center;
+        }
+        .game-list {
+            width: 50%;
+            margin: auto;
+        }
+        .game-item {
+            background-color: #222;
+            border-radius: 10px;
+            margin: 10px 0;
+            padding: 10px;
+            transition: all 0.3s ease;
+        }
+        .game-header {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            cursor: pointer;
+            padding: 10px;
+            border-bottom: 2px solid #444;
+        }
+        .game-header img {
+            width: 50px;
+            height: 50px;
+            border-radius: 5px;
+            margin-right: 10px;
+        }
+        .game-header h2 {
+            flex-grow: 1;
+            margin-left: 10px;
+            text-align: left;
+        }
+        .arrow {
+            font-size: 24px;
+            transition: transform 0.3s ease;
+        }
+        .game-details {
+            display: none;
+            padding: 10px;
+            text-align: left;
+        }
+    </style>
 </head>
 <body>
-
-    <header>
-        <h1>Unsere Spiele</h1>
-    </header>
-
-    <main>
-        <div class="game-list">
-
-            <!-- Erstes Spiel -->
-            <div class="game-item">
-                <div class="game-header" onclick="toggleDetails(1)">
-                    <img src="assets/images/game1-icon.png" alt="Game 1 Icon">
-                    <h2>Game Name 1</h2>
-                    <span class="arrow">▼</span>
-                </div>
-                <div class="game-details" id="details-1">
-                    <p>Beschreibung des Spiels. Hier könnt ihr eine kurze Zusammenfassung oder Features beschreiben.</p>
-                </div>
+    <h1>Unsere Spiele</h1>
+    <div class="game-list">
+        <div class="game-item">
+            <div class="game-header" onclick="toggleGameDetails(1)">
+                <img src="assets/images/game1-icon.png" alt="Game 1 Icon">
+                <h2>Game Name 1</h2>
+                <span class="arrow">▼</span>
             </div>
-
-            <!-- Zweites Spiel -->
-            <div class="game-item">
-                <div class="game-header" onclick="toggleDetails(2)">
-                    <img src="assets/images/game2-icon.png" alt="Game 2 Icon">
-                    <h2>Game Name 2</h2>
-                    <span class="arrow">▼</span>
-                </div>
-                <div class="game-details" id="details-2">
-                    <p>Beschreibung für das zweite Spiel.</p>
-                </div>
+            <div class="game-details" id="game-details-1">
+                <p>Beschreibung des Spiels. Hier könnt ihr eine kurze Zusammenfassung oder Features beschreiben.</p>
             </div>
-
-            <!-- Drittes Spiel -->
-            <div class="game-item">
-                <div class="game-header" onclick="toggleDetails(3)">
-                    <img src="assets/images/game3-icon.png" alt="Game 3 Icon">
-                    <h2>Game Name 3</h2>
-                    <span class="arrow">▼</span>
-                </div>
-                <div class="game-details" id="details-3">
-                    <p>Beschreibung für das dritte Spiel.</p>
-                </div>
-            </div>
-
         </div>
-    </main>
-
+        <div class="game-item">
+            <div class="game-header" onclick="toggleGameDetails(2)">
+                <img src="assets/images/game2-icon.png" alt="Game 2 Icon">
+                <h2>Game Name 2</h2>
+                <span class="arrow">▼</span>
+            </div>
+            <div class="game-details" id="game-details-2">
+                <p>Beschreibung für das zweite Spiel.</p>
+            </div>
+        </div>
+        <div class="game-item">
+            <div class="game-header" onclick="toggleGameDetails(3)">
+                <img src="assets/images/game3-icon.png" alt="Game 3 Icon">
+                <h2>Game Name 3</h2>
+                <span class="arrow">▼</span>
+            </div>
+            <div class="game-details" id="game-details-3">
+                <p>Beschreibung für das dritte Spiel.</p>
+            </div>
+        </div>
+    </div>
+    <script>
+        function toggleGameDetails(gameId) {
+            var details = document.getElementById("game-details-" + gameId);
+            var arrow = details.previousElementSibling.querySelector(".arrow");
+            
+            if (details.style.display === "none" || details.style.display === "") {
+                details.style.display = "block";
+                arrow.style.transform = "rotate(180deg)";
+            } else {
+                details.style.display = "none";
+                arrow.style.transform = "rotate(0deg)";
+            }
+        }
+    </script>
 </body>
 </html>
