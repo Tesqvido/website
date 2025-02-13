@@ -6,10 +6,9 @@ html {
 ::selection {
     background: linear-gradient(90deg, red, orange, yellow, green, blue, indigo, violet);
     color: white; /* Weißer Text auf dem Regenbogenhintergrund */
-    transition: background 0.3s ease; /* Weicher Übergang */
 }
 
-/* Wenn du den selektierten Bereich animieren möchtest, könntest du folgendes hinzufügen */
+/* Optional: Für eine sanfte Übergangseffekte auf der gesamten Seite */
 body {
     font-family: Arial, sans-serif;
     line-height: 1.6;
@@ -17,7 +16,7 @@ body {
     padding: 0;
 }
 
-/* Optional: Für eine sanfte Übergangseffekte auf der gesamten Seite */
+/* Wenn du den selektierten Bereich animieren möchtest */
 * {
     transition: background 0.3s ease, color 0.3s ease;
 }
