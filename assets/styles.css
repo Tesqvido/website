@@ -1,15 +1,1 @@
-::selection {
-    background: linear-gradient(90deg, red, orange, yellow, green, blue, indigo, violet);
-    color: white;
-}
 
-body {
-    font-family: Arial, sans-serif;
-    line-height: 1.6;
-    margin: 0;
-    padding: 0;
-}
-
-* {
-    transition: background 0.3s ease, color 0.3s ease;
-}
