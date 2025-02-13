@@ -6,6 +6,7 @@
     <title>ShadowQuill Studio</title>
     <link rel="stylesheet" href="assets/styles.css">
     <style>
+        /* Allgemeine Einstellungen */
         body {
             font-family: Arial, sans-serif;
             margin: 0;
@@ -13,37 +14,176 @@
             text-align: center;
             background-color: #111;
             color: white;
+            overflow-x: hidden;
         }
+
+        /* Header */
         header {
             background-color: #222;
             padding: 1em;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
         }
+
         .logo {
             max-width: 150px;
         }
+
+        /* Navigation */
         nav {
             background-color: #333;
             padding: 1em;
+            display: flex;
+            justify-content: center;
+            gap: 20px;
         }
+
         nav a {
             color: white;
             text-decoration: none;
-            margin: 0 15px;
+            font-size: 1.2em;
+            transition: color 0.3s;
         }
+
+        nav a:hover {
+            color: #ff6347; /* Sanftes Rot beim Hover */
+        }
+
+        /* Main Content */
         main {
             padding: 2em;
             background: url('shadow quill background.png') no-repeat center center;
             background-size: cover;
             min-height: 500px;
+            position: relative;
+            color: white;
         }
+
+        h1 {
+            font-size: 2.5em;
+            margin-bottom: 0.5em;
+        }
+
+        p {
+            font-size: 1.2em;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .cta-button {
+            background-color: #ff6347;
+            color: white;
+            padding: 0.8em 2em;
+            border: none;
+            font-size: 1.2em;
+            cursor: pointer;
+            text-transform: uppercase;
+            margin-top: 2em;
+            transition: background-color 0.3s;
+        }
+
+        .cta-button:hover {
+            background-color: #ff4500;
+        }
+
+        /* Footer */
         footer {
             background-color: #222;
-            padding-bottom: 0.6em;
-            padding-top: 0.6em;
+            padding: 1em;
             position: relative;
             bottom: 0;
             width: 100%;
+            box-shadow: 0 -4px 10px rgba(0, 0, 0, 0.3);
         }
+
+        footer p {
+            margin: 0;
+            font-size: 1em;
+        }
+
+        /* Sektionen */
+        section {
+            padding: 3em 0;
+        }
+
+        section h2 {
+            font-size: 2em;
+            margin-bottom: 1em;
+        }
+
+        .cards {
+            display: flex;
+            justify-content: space-around;
+            gap: 20px;
+            flex-wrap: wrap;
+        }
+
+        .card {
+            background-color: #333;
+            padding: 1.5em;
+            width: 250px;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+            transition: transform 0.3s;
+        }
+
+        .card:hover {
+            transform: scale(1.05);
+        }
+
+        .card img {
+            width: 100%;
+            border-radius: 5px;
+            height: 180px;
+            object-fit: cover;
+        }
+
+        .card h3 {
+            margin-top: 1em;
+            font-size: 1.5em;
+        }
+
+        .card p {
+            margin-top: 0.5em;
+            font-size: 1em;
+        }
+
+        /* Kontaktformular */
+        #contact {
+            background-color: #333;
+            color: white;
+            padding: 3em;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        #contact h2 {
+            margin-bottom: 1em;
+        }
+
+        input, textarea {
+            width: 100%;
+            max-width: 500px;
+            padding: 0.8em;
+            margin: 0.5em 0;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+
+        button {
+            background-color: #ff6347;
+            color: white;
+            padding: 0.8em 2em;
+            border: none;
+            border-radius: 5px;
+            font-size: 1.1em;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background-color: #ff4500;
+        }
+
     </style>
 </head>
 <body>
@@ -59,9 +199,42 @@
     <main>
         <h1>Willkommen bei ShadowQuill Studio</h1>
         <p>Wir sind ein Indie-Game-Entwicklerstudio, bestehend aus drei kreativen Köpfen. Unser erstes Spiel ist in Entwicklung!</p>
+        <button class="cta-button">Mehr erfahren</button>
     </main>
+    <!-- Unsere Spiele-Sektion -->
+    <section>
+        <h2>Unsere Projekte</h2>
+        <div class="cards">
+            <div class="card">
+                <img src="game-1.jpg" alt="Spiel 1">
+                <h3>Spiel 1</h3>
+                <p>Ein aufregendes Abenteuer in einer fantastischen Welt voller Magie und Mysterien.</p>
+            </div>
+            <div class="card">
+                <img src="game-2.jpg" alt="Spiel 2">
+                <h3>Spiel 2</h3>
+                <p>Ein schnelles Action-Spiel mit intensiven Kämpfen und epischen Bossen.</p>
+            </div>
+            <div class="card">
+                <img src="game-3.jpg" alt="Spiel 3">
+                <h3>Spiel 3</h3>
+                <p>Ein kreativer Puzzle-Plattform, der dich herausfordert, deine Denkmuster zu erweitern.</p>
+            </div>
+        </div>
+    </section>
+    <!-- Kontaktformular-Sektion -->
+    <section id="contact">
+        <h2>Kontakt</h2>
+        <p>Wir freuen uns über deine Nachricht! Schreib uns einfach, wenn du Fragen hast oder mehr erfahren möchtest.</p>
+        <form>
+            <input type="text" placeholder="Dein Name" required>
+            <input type="email" placeholder="Deine E-Mail" required>
+            <textarea placeholder="Deine Nachricht" rows="5" required></textarea>
+            <button type="submit">Absenden</button>
+        </form>
+    </section>
     <footer>
-        <p>&copy; 2025 ShadowQuill Studio</p>
+        <p>&copy; 2025 ShadowQuill Studio | Alle Rechte vorbehalten</p>
     </footer>
 </body>
 </html>
