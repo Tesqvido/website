@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Über Uns - ShadowQuill Studio</title>
+    <link rel="stylesheet" href="assets/styles.css">
+    <style>
+        /* Allgemeine Einstellungen */
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            text-align: center;
+            background-color: #111;
+            color: white;
+            overflow-x: hidden;
+        }
+
+        /* Navigation */
+        nav {
+            background-color: #333;
+            padding: 1em;
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+        }
+
+        nav a {
+            color: white;
+            text-decoration: none;
+            font-size: 1.2em;
+            transition: color 0.3s;
+        }
+
+        nav a:hover {
+            color: #ff6347; /* Sanftes Rot beim Hover */
+        }
+
+        /* Hauptbereich */
+        main {
+            padding: 4em 2em;
+            background-color: #222;
+            min-height: 100vh;
+        }
+
+        h1 {
+            font-size: 2.5em;
+            margin-bottom: 0.5em;
+        }
+
+        .intro {
+            font-size: 1.2em;
+            max-width: 900px;
+            margin: 0 auto;
+            line-height: 1.6;
+            margin-bottom: 2em;
+        }
+
+        .team {
+            display: flex;
+            justify-content: center;
+            gap: 40px;
+            flex-wrap: wrap;
+            margin-top: 3em;
+        }
+
+        .team-member {
+            background-color: #333;
+            padding: 2em;
+            border-radius: 8px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+            width: 250px;
+            text-align: center;
+        }
+
+        .team-member img {
+            border-radius: 50%;
+            width: 150px;
+            height: 150px;
+            object-fit: cover;
+            margin-bottom: 1em;
+        }
+
+        .team-member h3 {
+            font-size: 1.5em;
+        }
+
+        .team-member p {
+            font-size: 1.1em;
+            color: #ccc;
+        }
+
+        footer {
+            background-color: #222;
+            padding: 1em;
+            position: relative;
+            bottom: 0;
+            width: 100%;
+            box-shadow: 0 -4px 10px rgba(0, 0, 0, 0.3);
+        }
+
+        footer p {
+            margin: 0;
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav>
+        <a href="#">Home</a>
+        <a href="about.html">Über Uns</a>
+        <a href="game.html">Unser Spiel</a>
+        <a href="#contact">Kontakt</a>
+    </nav>
+
+    <!-- Hauptbereich -->
+    <main>
+        <h1>Über ShadowQuill Studio</h1>
+        <p class="intro">
+            ShadowQuill Studio ist ein Indie-Game-Entwicklerstudio, das aus einer Gruppe von kreativen Köpfen besteht, die
+            leidenschaftlich an der Entwicklung von einzigartigen und aufregenden Spielen arbeiten. Unser Ziel ist es, 
+            Spiele zu entwickeln, die sowohl die Fantasie anregen als auch tiefgründige, fesselnde Erlebnisse bieten. 
+            Mit einem Fokus auf innovative Spielmechaniken und packende Geschichten wollen wir die Welt des Gaming 
+            bereichern.
+        </p>
+
+        <!-- Team-Sektion -->
+        <h2>Unser Team</h2>
+        <div class="team">
+            <!-- Mitglied 1 -->
+            <div class="team-member">
+                <img src="team-member-1.jpg" alt="Teammitglied 1">
+                <h3>Max Mustermann</h3>
+                <p>Lead Developer und Gründer</p>
+                <p>Max ist das kreative Genie hinter vielen unserer Spielideen und verantwortlich für die Entwicklung der grundlegenden Spielmechaniken.</p>
+            </div>
+
+            <!-- Mitglied 2 -->
+            <div class="team-member">
+                <img src="team-member-2.jpg" alt="Teammitglied 2">
+                <h3>Lisa Beispiel</h3>
+                <p>Grafikdesignerin</p>
+                <p>Lisa sorgt dafür, dass unsere Spiele visuell atemberaubend sind, indem sie detailreiche Welten und Charaktere entwirft.</p>
+            </div>
+
+            <!-- Mitglied 3 -->
+            <div class="team-member">
+                <img src="team-member-3.jpg" alt="Teammitglied 3">
+                <h3>Jonas Schmidt</h3>
+                <p>Sound-Designer</p>
+                <p>Jonas verleiht unseren Spielen Leben, indem er den Soundtrack und die Soundeffekte erschafft, die die Atmosphäre verbessern.</p>
+            </div>
+        </div>
+    </main>
+
+    <!-- Kontaktbereich -->
+    <section id="contact">
+        <footer>
+            <p>&copy; 2025 ShadowQuill Studio | Alle Rechte vorbehalten</p>
+        </footer>
+    </section>
+</body>
+</html>
