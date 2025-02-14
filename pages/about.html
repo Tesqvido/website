@@ -57,6 +57,7 @@
             margin-bottom: 2em;
         }
 
+        /* Team-Sektion */
         .team {
             display: flex;
             justify-content: center;
@@ -65,6 +66,7 @@
             margin-top: 3em;
         }
 
+        /* Team-Mitglied Styling */
         .team-member {
             background-color: #333;
             padding: 2em;
@@ -72,23 +74,50 @@
             box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
             width: 250px;
             text-align: center;
+            transition: transform 0.3s;
+        }
+
+        .team-member:hover {
+            transform: scale(1.05);
         }
 
         .team-member img {
-            border-radius: 50%;
-            width: 150px;
-            height: 150px;
+            border-radius: 50%; /* Rundes Bild */
+            width: 120px;
+            height: 120px;
             object-fit: cover;
+            border: 4px solid #ff6347; /* Rahmen hinzufügen */
             margin-bottom: 1em;
         }
 
         .team-member h3 {
             font-size: 1.5em;
+            color: #ff6347;
         }
 
         .team-member p {
             font-size: 1.1em;
             color: #ccc;
+        }
+
+        /* Ausklappen-Sektion */
+        .game-details {
+            display: none;
+            background-color: #444;
+            padding: 1em;
+            margin-top: 1em;
+            border-radius: 8px;
+        }
+
+        .arrow {
+            font-size: 1.5em;
+            color: #ff6347;
+            cursor: pointer;
+            transition: transform 0.3s;
+        }
+
+        .arrow.open {
+            transform: rotate(180deg);
         }
 
         footer {
@@ -130,26 +159,35 @@
         <div class="team">
             <!-- Mitglied 1 -->
             <div class="team-member">
-                <img src="team-member-1.jpg" alt="Teammitglied 1">
+                <img src="https://cdn.discordapp.com/avatars/123456789012345678/abcd1234efgh5678.png" alt="Teammitglied 1">
                 <h3>Max Mustermann</h3>
-                <p>Lead Developer und Gründer</p>
-                <p>Max ist das kreative Genie hinter vielen unserer Spielideen und verantwortlich für die Entwicklung der grundlegenden Spielmechaniken.</p>
+                <p>Lead Developer</p>
+                <span class="arrow" onclick="toggleDetails(1)">▼</span>
+                <div class="game-details" id="game-details-1">
+                    <p>Max ist das kreative Genie hinter vielen unserer Spielideen und verantwortlich für die Entwicklung der grundlegenden Spielmechaniken.</p>
+                </div>
             </div>
 
             <!-- Mitglied 2 -->
             <div class="team-member">
-                <img src="team-member-2.jpg" alt="Teammitglied 2">
+                <img src="https://cdn.discordapp.com/avatars/234567890123456789/abcd1234efgh5678.png" alt="Teammitglied 2">
                 <h3>Lisa Beispiel</h3>
                 <p>Grafikdesignerin</p>
-                <p>Lisa sorgt dafür, dass unsere Spiele visuell atemberaubend sind, indem sie detailreiche Welten und Charaktere entwirft.</p>
+                <span class="arrow" onclick="toggleDetails(2)">▼</span>
+                <div class="game-details" id="game-details-2">
+                    <p>Lisa sorgt dafür, dass unsere Spiele visuell atemberaubend sind, indem sie detailreiche Welten und Charaktere entwirft.</p>
+                </div>
             </div>
 
             <!-- Mitglied 3 -->
             <div class="team-member">
-                <img src="team-member-3.jpg" alt="Teammitglied 3">
+                <img src="https://cdn.discordapp.com/avatars/345678901234567890/abcd1234efgh5678.png" alt="Teammitglied 3">
                 <h3>Jonas Schmidt</h3>
                 <p>Sound-Designer</p>
-                <p>Jonas verleiht unseren Spielen Leben, indem er den Soundtrack und die Soundeffekte erschafft, die die Atmosphäre verbessern.</p>
+                <span class="arrow" onclick="toggleDetails(3)">▼</span>
+                <div class="game-details" id="game-details-3">
+                    <p>Jonas verleiht unseren Spielen Leben, indem er den Soundtrack und die Soundeffekte erschafft, die die Atmosphäre verbessern.</p>
+                </div>
             </div>
         </div>
     </main>
@@ -160,5 +198,30 @@
             <p>&copy; 2025 ShadowQuill Studio | Alle Rechte vorbehalten</p>
         </footer>
     </section>
+
+    <script>
+        // Funktion zum Umschalten der Details
+        function toggleDetails(memberId) {
+            // Alle Details schließen
+            const allDetails = document.querySelectorAll('.game-details');
+            allDetails.forEach(detail => detail.style.display = 'none');
+
+            // Pfeil zurücksetzen
+            const allArrows = document.querySelectorAll('.arrow');
+            allArrows.forEach(arrow => arrow.classList.remove('open'));
+
+            // Aktuelles Detail öffnen
+            const details = document.getElementById(`game-details-${memberId}`);
+            const arrow = details.previousElementSibling.querySelector('.arrow');
+
+            if (details.style.display === 'block') {
+                details.style.display = 'none';
+                arrow.classList.remove('open');
+            } else {
+                details.style.display = 'block';
+                arrow.classList.add('open');
+            }
+        }
+    </script>
 </body>
 </html>
