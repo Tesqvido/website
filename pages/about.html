@@ -8,7 +8,7 @@
     <style>
         /* Allgemeine Einstellungen */
         body {
-            font-family: Arial, sans-serif;
+            font-family: 'Arial', sans-serif;
             margin: 0;
             padding: 0;
             text-align: center;
@@ -24,6 +24,7 @@
             display: flex;
             justify-content: center;
             gap: 20px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
         }
 
         nav a {
@@ -60,7 +61,7 @@
         /* Team-Sektion */
         .team {
             display: block;
-            max-width: 800px;
+            max-width: 900px;
             margin: 0 auto;
             margin-top: 3em;
         }
@@ -72,13 +73,14 @@
             border-radius: 8px;
             box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
             width: 100%;
-            margin-bottom: 1.5em; /* Abstand zwischen den Mitgliedern */
+            margin-bottom: 1.5em;
             text-align: center;
-            transition: transform 0.3s;
+            transition: transform 0.3s, box-shadow 0.3s;
         }
 
         .team-member:hover {
             transform: scale(1.05);
+            box-shadow: 0 6px 15px rgba(0, 0, 0, 0.4);
         }
 
         .team-member img {
@@ -88,16 +90,23 @@
             object-fit: cover;
             border: 4px solid #ff6347; /* Rahmen hinzufügen */
             margin-bottom: 1em;
+            transition: border-color 0.3s;
+        }
+
+        .team-member:hover img {
+            border-color: #ff4500; /* Übergang zum intensiveren Rot */
         }
 
         .team-member h3 {
             font-size: 1.5em;
             color: #ff6347;
+            margin-bottom: 0.5em;
         }
 
         .team-member p {
             font-size: 1.1em;
             color: #ccc;
+            margin-bottom: 1em;
         }
 
         /* Ausklappen-Sektion */
@@ -107,6 +116,7 @@
             padding: 1em;
             margin-top: 1em;
             border-radius: 8px;
+            font-size: 1em;
         }
 
         .arrow {
@@ -131,6 +141,31 @@
 
         footer p {
             margin: 0;
+            font-size: 1em;
+            color: #aaa;
+        }
+
+        /* Responsives Design */
+        @media (max-width: 768px) {
+            .team-member {
+                padding: 1.5em;
+                width: 100%;
+                margin-bottom: 1em;
+            }
+
+            .team {
+                padding: 0 1em;
+            }
+
+            h1 {
+                font-size: 2em;
+            }
+
+            .intro {
+                font-size: 1.1em;
+                margin: 0 auto;
+                padding: 0 1em;
+            }
         }
     </style>
 </head>
