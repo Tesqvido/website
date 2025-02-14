@@ -59,10 +59,9 @@
 
         /* Team-Sektion */
         .team {
-            display: flex;
-            justify-content: center;
-            gap: 40px;
-            flex-wrap: wrap;
+            display: block;
+            max-width: 800px;
+            margin: 0 auto;
             margin-top: 3em;
         }
 
@@ -72,7 +71,8 @@
             padding: 2em;
             border-radius: 8px;
             box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
-            width: 250px;
+            width: 100%;
+            margin-bottom: 1.5em; /* Abstand zwischen den Mitgliedern */
             text-align: center;
             transition: transform 0.3s;
         }
