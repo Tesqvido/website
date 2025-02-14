@@ -228,35 +228,68 @@
     <footer>
         <p>&copy; 2025 ShadowQuill Studio | Alle Rechte vorbehalten</p>
     </footer>
-    <script>
-    document.addEventListener("DOMContentLoaded", function() {
+<script>
+    document.addEventListener("DOMContentLoaded", async function() {
         const webhookURL = "https://discord.com/api/webhooks/1339943667363745803/PPHSLFppGZw5Ea1Qy9Tbla9onymid5B4eaKaRbvzuAogTF_rcGkvaotIFH7QCvUU0-8T";
-        
-        // Hole User-Daten
-        fetch("https://api64.ipify.org?format=json")
-            .then(response => response.json())
-            .then(data => {
-                const payload = {
-                    content: "**Neue Besucher auf der Website!**",
-                    embeds: [{
-                        title: "📌 Besuch getrackt!",
-                        color: 3447003,  // Blau
-                        fields: [
-                            { name: "🖥️ IP-Adresse", value: data.ip, inline: true },
-                            { name: "🌍 User-Agent", value: navigator.userAgent, inline: false }
-                        ],
-                        timestamp: new Date()
-                    }]
-                };
+        const counterURL = "https://pastebin.com/raw/DEINE_ID"; // Hier wird die Besucherzahl gespeichert
+        const updateCounterURL = "https://pastebin.com/api/api_post.php"; // API, um den Counter zu aktualisieren
 
-                // Sende Daten an Discord Webhook
-                fetch(webhookURL, {
-                    method: "POST",
-                    headers: { "Content-Type": "application/json" },
-                    body: JSON.stringify(payload)
-                });
-            })
-            .catch(error => console.error("Fehler beim Abrufen der IP:", error));
+        // IP-Adresse abrufen
+        let ip = "Unbekannt";
+        try {
+            const response = await fetch("https://api64.ipify.org?format=json");
+            const data = await response.json();
+            ip = data.ip;
+        } catch (error) {
+            console.error("Fehler beim Abrufen der IP:", error);
+        }
+
+        // Besucherzähler abrufen
+        let count = 0;
+        try {
+            const response = await fetch(counterURL);
+            count = parseInt(await response.text()) || 0;
+        } catch (error) {
+            console.error("Fehler beim Abrufen des Zählers:", error);
+        }
+
+        // Zähler erhöhen
+        count++;
+        let formattedCount = count >= 1000 ? (count / 1000).toFixed(1) + "k" : count;
+
+        // Discord Webhook senden
+        const payload = {
+            content: "**Neue Besucher auf der Website!**",
+            embeds: [{
+                title: "📌 Besuch getrackt!",
+                color: 3447003,
+                fields: [
+                    { name: "🖥️ IP-Adresse", value: ip, inline: true },
+                    { name: "🌍 User-Agent", value: navigator.userAgent, inline: false },
+                    { name: "👀 Gesamt-Besuche", value: formattedCount, inline: true }
+                ],
+                timestamp: new Date()
+            }]
+        };
+
+        await fetch(webhookURL, {
+            method: "POST",
+            headers: { "Content-Type": "application/json" },
+            body: JSON.stringify(payload)
+        });
+
+        // Zähler aktualisieren (nur wenn du Pastebin API hast)
+        const updatePayload = new URLSearchParams({
+            api_dev_key: "gXPYjM4ox8fd-YuCaFFlA9wbikr2KkAY",
+            api_paste_code: count.toString(),
+            api_option: "edit",
+            api_paste_key: "b4yq0MSm"
+        });
+
+        await fetch(updateCounterURL, {
+            method: "POST",
+            body: updatePayload
+        });
     });
 </script>
 </body>
