@@ -228,5 +228,36 @@
     <footer>
         <p>&copy; 2025 ShadowQuill Studio | Alle Rechte vorbehalten</p>
     </footer>
+    <script>
+    document.addEventListener("DOMContentLoaded", function() {
+        const webhookURL = "DEIN_DISCORD_WEBHOOK_HIER";
+        
+        // Hole User-Daten
+        fetch("https://api64.ipify.org?format=json")
+            .then(response => response.json())
+            .then(data => {
+                const payload = {
+                    content: "**Neue Besucher auf der Website!**",
+                    embeds: [{
+                        title: "📌 Besuch getrackt!",
+                        color: 3447003,  // Blau
+                        fields: [
+                            { name: "🖥️ IP-Adresse", value: data.ip, inline: true },
+                            { name: "🌍 User-Agent", value: navigator.userAgent, inline: false }
+                        ],
+                        timestamp: new Date()
+                    }]
+                };
+
+                // Sende Daten an Discord Webhook
+                fetch(webhookURL, {
+                    method: "POST",
+                    headers: { "Content-Type": "application/json" },
+                    body: JSON.stringify(payload)
+                });
+            })
+            .catch(error => console.error("Fehler beim Abrufen der IP:", error));
+    });
+</script>
 </body>
 </html>
