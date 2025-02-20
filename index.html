@@ -201,13 +201,6 @@
     <main>
         <h1>Willkommen bei ShadowQuill Studio</h1>
         <p>Wir sind ein Indie-Game-Entwicklerstudio. Melde dich mit Discord an!</p>
-
-        <!-- Discord Login Button -->
-        <a href="https://shadowquill.vercel.app/callback" class="cta-button" target="_blank">Mit Discord einloggen</a>
-
-        <div id="user-info" style="display: none;">
-            <h2>Willkommen, <span id="username"></span>!</h2>
-            <img id="user-avatar" src="" alt="Avatar" />
         </div>
     </main>
     <!-- Unsere Spiele-Sektion -->
@@ -237,25 +230,5 @@
     <footer>
         <p>&copy; 2025 ShadowQuill Studio | Alle Rechte vorbehalten</p>
     </footer>
-    <script>
-    // Diese Funktion wird aufgerufen, um das Benutzerprofil nach dem Login anzuzeigen
-    async function fetchUserProfile() {
-        const response = await fetch('https://deine-app.vercel.app/api/discord-callback', {
-            method: 'GET',
-            credentials: 'include'
-        });
-
-        if (response.ok) {
-            const userData = await response.json();
-            // Zeige den Benutzernamen und das Avatar-Bild an
-            document.getElementById('username').textContent = userData.user.username;
-            document.getElementById('user-avatar').src = `https://cdn.discordapp.com/avatars/${userData.user.id}/${userData.user.avatar}.png`;
-            document.getElementById('user-info').style.display = 'block'; // Benutzerinfos sichtbar machen
-        }
-    }
-
-    // Rufe die Benutzerinfos nach der Anmeldung ab
-    window.onload = fetchUserProfile;
-</script>
 </body>
 </html>
