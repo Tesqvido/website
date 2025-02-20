@@ -13,9 +13,9 @@ app.use(passport.session());
 
 // Discord OAuth2 Strategy
 passport.use(new passportDiscord.Strategy({
-  clientID: 'DEIN_DISCORD_CLIENT_ID',
-  clientSecret: 'DEIN_DISCORD_CLIENT_SECRET',
-  callbackURL: 'https://deine-app.vercel.app/api/discord-callback',
+  clientID: '1342225724148420769',
+  clientSecret: 'JxcmqhFosik26auYDqeKXF4cye7y7svB',
+  callbackURL: 'https://shadowquill.vercel.app/callback',
   scope: ['identify', 'email'] // Optional: Füge zusätzliche Berechtigungen hinzu
 }, (accessToken, refreshToken, profile, done) => {
   return done(null, profile); // Profil an die Session übergeben
